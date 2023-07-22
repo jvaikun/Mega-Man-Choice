@@ -77,9 +77,9 @@ export(int) var PREVENT_OUTSIDE_SCREEN_OFFSET = 12 #Won't work if WARPS_LEFT_RIG
 export(bool) var USE_TIP_TOE_MOVEMENT = false
 export(float) var MAX_TIP_TOE_FRAME = 7
 
-export(String) var DEFAULT_CONTROL_LEFT = 'game_left'
-export(String) var DEFAULT_CONTROL_RIGHT = 'game_right'
-export(String) var DEFAULT_CONTROL_JUMP = 'game_jump'
+export(String) var DEFAULT_CONTROL_LEFT = "game_left"
+export(String) var DEFAULT_CONTROL_RIGHT = "game_right"
+export(String) var DEFAULT_CONTROL_JUMP = "game_jump"
 
 #Below only works if the level is defined to work with this.
 export (bool) var WARPS_AROUND_UP_DOWN = true
