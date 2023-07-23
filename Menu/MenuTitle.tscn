@@ -28,14 +28,15 @@ margin_bottom = 71.0
 alignment = 1
 
 [node name="Title" type="TextureRect" parent="Header"]
-margin_right = 182.0
-margin_bottom = 56.0
+margin_right = 184.0
+margin_bottom = 72.0
 texture = ExtResource( 1 )
 
 [node name="Subtitle" type="Label" parent="Header"]
-margin_top = 60.0
-margin_right = 182.0
-margin_bottom = 71.0
+visible = false
+margin_top = 76.0
+margin_right = 184.0
+margin_bottom = 85.0
 custom_fonts/font = ExtResource( 2 )
 text = "Mega Man Choice 2"
 align = 1
@@ -51,7 +52,7 @@ margin_bottom = 40.0
 
 [node name="Start" type="Label" parent="MenuList"]
 margin_right = 216.0
-margin_bottom = 11.0
+margin_bottom = 9.0
 custom_fonts/font = ExtResource( 2 )
 text = "- PRESS <ACTION> TO START -"
 align = 1

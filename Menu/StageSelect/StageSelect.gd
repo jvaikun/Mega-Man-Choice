@@ -4,19 +4,19 @@ onready var fade_screen = $FadeScreen
 
 var menu_data = [
 	[
-		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(24, 9)},
-		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(24, 73)},
-		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(24, 137)},
+		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(24, 17)},
+		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(24, 81)},
+		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(24, 145)},
 	],
 	[
-		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(104, 9)},
-		{"stage":"", "pos":Vector2(104, 73)},
-		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(104, 137)},
+		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(104, 17)},
+		{"stage":"", "pos":Vector2(104, 81)},
+		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(104, 145)},
 	],
 	[
-		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(184, 9)},
-		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(184, 73)},
-		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(184, 137)},
+		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(184, 17)},
+		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(184, 81)},
+		{"stage":"res://Levels/Levels/Grassland_1_2OP.tscn", "pos":Vector2(184, 145)},
 	],
 ]
 var menu_pos = Vector2.ZERO
