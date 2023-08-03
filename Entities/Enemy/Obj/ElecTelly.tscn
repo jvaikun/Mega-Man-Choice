@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Entities/Enemy/Obj/ElecTelly.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Enemy/Core/EnemyCore.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Enemy/Obj/ElecTellyLightning.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Pickups/LifeEnergyLarge.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Pickups/LifeEnergySmall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Sprites/Enemies/ElecTelly.png" type="Texture" id=12]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "TellySpawn"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_Dissapate"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../..:eat_player_projectile")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "TellySpin"
+length = 1.2
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 7, 7 )
+
+[node name="ElecTelly" instance=ExtResource( 2 )]
+z_index = 1
+z_as_relative = false
+script = ExtResource( 1 )
+damage_area_nodes = [ NodePath("DamageArea") ]
+contact_damage = 2.0
+hit_points_base = 2
+pickup_obj_weapon_large = ExtResource( 5 )
+pickup_obj_weapon_small = ExtResource( 6 )
+imageHeight = 32
+xRange = 24.0
+speed = 30.0
+bullet = ExtResource( 3 )
+
+[node name="SpriteMain" parent="." index="0"]
+z_index = 1
+z_as_relative = false
+
+[node name="Sprite" parent="SpriteMain" index="0"]
+z_index = 1
+z_as_relative = false
+texture = ExtResource( 12 )
+hframes = 12
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="SpriteMain/Sprite" index="0"]
+anims/RESET = SubResource( 1 )
+anims/TellySpawn = SubResource( 4 )
+anims/TellySpin = SubResource( 2 )
+
+[node name="DamageArea" type="Area2D" parent="." index="8"]
+collision_layer = 6
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
+shape = SubResource( 3 )
+
+[node name="ChargeTimer" type="Timer" parent="." index="9"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="ChargeTimer" to="." method="_on_ChargeTimer_timeout"]
