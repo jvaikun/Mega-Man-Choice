@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MugshotHeatMan.png-1b5aea44237c4575939b7c73b0084d55.stex"
+path="res://.import/boss_frame1.png-247c3399a5671e6fe587645bc7f351ab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu/StageSelect/MugshotHeatMan.png"
-dest_files=[ "res://.import/MugshotHeatMan.png-1b5aea44237c4575939b7c73b0084d55.stex" ]
+source_file="res://Assets/boss_frame1.png"
+dest_files=[ "res://.import/boss_frame1.png-247c3399a5671e6fe587645bc7f351ab.stex" ]
 
 [params]
 

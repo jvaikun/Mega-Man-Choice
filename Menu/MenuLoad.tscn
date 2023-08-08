@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Fonts/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menu/SaveFile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sprites/GUI/NinePatch/NineBgPanel_Blue.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 24, 24 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 24, 24 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[node name="Load" type="PanelContainer"]
+margin_right = 192.0
+margin_bottom = 192.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="LoadFile" type="VBoxContainer" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 184.0
+margin_bottom = 184.0
+
+[node name="Header" type="Label" parent="LoadFile"]
+margin_right = 176.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "LOAD SAVE FILE"
+align = 1
+
+[node name="SaveList" type="VBoxContainer" parent="LoadFile"]
+margin_top = 13.0
+margin_right = 176.0
+margin_bottom = 132.0
+
+[node name="SaveFile1" parent="LoadFile/SaveList" instance=ExtResource( 2 )]
+margin_right = 176.0
+margin_bottom = 37.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="SaveFile2" parent="LoadFile/SaveList" instance=ExtResource( 2 )]
+margin_top = 41.0
+margin_right = 176.0
+margin_bottom = 78.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="SaveFile3" parent="LoadFile/SaveList" instance=ExtResource( 2 )]
+margin_top = 82.0
+margin_right = 176.0
+margin_bottom = 119.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Password" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 184.0
+margin_bottom = 184.0
+
+[node name="Header" type="Label" parent="Password"]
+margin_right = 176.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "ENTER PASSWORD"
+align = 1
