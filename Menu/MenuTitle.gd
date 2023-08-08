@@ -1,32 +1,41 @@
 extends Control
 
 onready var fade_screen = $FadeScreen
-onready var menu_list = $Main.get_children()
 onready var start_prompt = $StartPrompt
 
 onready var menu_data = {
 	"main":$Main.get_children(),
-	"load":$Load.get_children(),
+	"load":$Load/LoadFile/SaveList.get_children(),
 	"options":$Options.get_children(),
 }
+# Options Menu
+# Controller Config - Keyboard, Gamepad
+# Audio - Master, Music, SFX, Music version [NES/Arranged]
+# Display - Scale [1x, 2x, 3x, 4x, Fullscreen], Widescreen/Native, V-Sync [ON/OFF], Border [Disable if Native]
+# Gameplay - Charge bar [on/off], Damage nums [on/off], Weapon wheel [on/off], Pause on Pickup [on/off]
+# Option description in bar below menu
+
+
 
 var menu_name = "main"
 var menu_index = 0 setget set_index
 
 
 func set_index(val):
-	menu_index = clamp(val, 0, menu_list.size() - 1)
-	for i in menu_list.size():
+	menu_index = clamp(val, 0, menu_data[menu_name].size() - 1)
+	for i in menu_data[menu_name].size():
 		if i == menu_index:
-			menu_list[i].modulate = Color(1, 0, 0)
+			menu_data[menu_name][i].self_modulate = Color(1, 0, 0)
 		else:
-			menu_list[i].modulate = Color(1, 1, 1)
+			menu_data[menu_name][i].self_modulate = Color(1, 1, 1)
 
 
 func _ready():
 	if OS.get_name() == "HTML5":
 		$Load/LoadFile.hide()
 		$Load/Password.show()
+		$Main/Quit.hide()
+		menu_data.main.pop_back()
 	else:
 		$Load/LoadFile.show()
 		$Load/Password.hide()
@@ -71,6 +80,7 @@ func transition(type):
 	$Transition.texture = screenshot
 	$Transition.show()
 	menu_name = type
+	set_index(0)
 	match type:
 		"main":
 			$Transition.material.set_shader_param("mask", load("res://Menu/Transition/mask_wipe_in.tres"))

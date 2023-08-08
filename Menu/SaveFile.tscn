@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fonts/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Sprites/GUI/Icons/MiniMega.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/GUI/NinePatch/NineBgPanel_Blue.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 24, 24 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[node name="SaveFile" type="PanelContainer"]
+margin_right = 98.0
+margin_bottom = 27.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Content" type="HBoxContainer" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 112.0
+margin_bottom = 29.0
+
+[node name="Icon" type="TextureRect" parent="Content"]
+margin_right = 12.0
+margin_bottom = 21.0
+texture = ExtResource( 2 )
+
+[node name="Caption" type="Label" parent="Content"]
+margin_left = 16.0
+margin_right = 104.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 1 )
+text = "SAVE FILE #
+SAVE INFO"

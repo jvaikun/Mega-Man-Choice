@@ -1,0 +1,200 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Fonts/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Sprites/GUI/NinePatch/NineBgPanel_Basic.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 24, 24 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[node name="MenuOptions" type="VBoxContainer"]
+margin_right = 176.0
+margin_bottom = 176.0
+custom_constants/separation = 0
+
+[node name="MenuOptions" type="PanelContainer" parent="."]
+margin_right = 176.0
+margin_bottom = 25.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="Content" type="VBoxContainer" parent="MenuOptions"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 168.0
+margin_bottom = 17.0
+
+[node name="Header" type="Label" parent="MenuOptions/Content"]
+margin_right = 160.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "OPTIONS"
+align = 1
+
+[node name="Main" type="VBoxContainer" parent="MenuOptions/Content"]
+visible = false
+margin_top = 13.0
+margin_right = 160.0
+margin_bottom = 61.0
+
+[node name="Display" type="Label" parent="MenuOptions/Content/Main"]
+margin_right = 160.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "DISPLAY"
+
+[node name="Sound" type="Label" parent="MenuOptions/Content/Main"]
+margin_top = 13.0
+margin_right = 160.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+text = "SOUND"
+
+[node name="Controls" type="Label" parent="MenuOptions/Content/Main"]
+margin_top = 26.0
+margin_right = 160.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 1 )
+text = "CONTROLS"
+
+[node name="Gameplay" type="Label" parent="MenuOptions/Content/Main"]
+margin_top = 39.0
+margin_right = 160.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 1 )
+text = "GAMEPLAY"
+
+[node name="Display" type="VBoxContainer" parent="MenuOptions/Content"]
+visible = false
+margin_top = 13.0
+margin_right = 160.0
+margin_bottom = 61.0
+
+[node name="Scale" type="Label" parent="MenuOptions/Content/Display"]
+margin_right = 160.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "SCALE"
+
+[node name="Widescreen" type="Label" parent="MenuOptions/Content/Display"]
+margin_top = 13.0
+margin_right = 160.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+text = "WIDESCREEN"
+
+[node name="V-Sync" type="Label" parent="MenuOptions/Content/Display"]
+margin_top = 26.0
+margin_right = 160.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 1 )
+text = "V-SYNC"
+
+[node name="Border" type="Label" parent="MenuOptions/Content/Display"]
+margin_top = 39.0
+margin_right = 160.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 1 )
+text = "BORDER"
+
+[node name="Sound" type="VBoxContainer" parent="MenuOptions/Content"]
+visible = false
+margin_top = 13.0
+margin_right = 160.0
+margin_bottom = 61.0
+
+[node name="VolMaster" type="Label" parent="MenuOptions/Content/Sound"]
+margin_right = 160.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "MASTER VOLUME"
+
+[node name="VolMusic" type="Label" parent="MenuOptions/Content/Sound"]
+margin_top = 13.0
+margin_right = 160.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+text = "MUSIC VOLUME"
+
+[node name="VolSFX" type="Label" parent="MenuOptions/Content/Sound"]
+margin_top = 26.0
+margin_right = 160.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 1 )
+text = "SFX VOLUME"
+
+[node name="Version" type="Label" parent="MenuOptions/Content/Sound"]
+margin_top = 39.0
+margin_right = 160.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 1 )
+text = "VERSION"
+
+[node name="Controls" type="VBoxContainer" parent="MenuOptions/Content"]
+visible = false
+margin_top = 17.0
+margin_right = 160.0
+margin_bottom = 39.0
+
+[node name="Keyboard" type="Label" parent="MenuOptions/Content/Controls"]
+margin_right = 160.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "KEYBOARD CONFIG"
+
+[node name="Gamepad" type="Label" parent="MenuOptions/Content/Controls"]
+margin_top = 13.0
+margin_right = 160.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+text = "GAMEPAD CONFIG"
+
+[node name="Gameplay" type="VBoxContainer" parent="MenuOptions/Content"]
+visible = false
+margin_top = 13.0
+margin_right = 160.0
+margin_bottom = 61.0
+
+[node name="ChargeBar" type="Label" parent="MenuOptions/Content/Gameplay"]
+margin_right = 160.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "CHARGE BAR"
+
+[node name="DmgPopup" type="Label" parent="MenuOptions/Content/Gameplay"]
+margin_top = 13.0
+margin_right = 160.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+text = "DAMAGE POPUPS"
+
+[node name="WpnWheel" type="Label" parent="MenuOptions/Content/Gameplay"]
+margin_top = 26.0
+margin_right = 160.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 1 )
+text = "WEAPON WHEEL"
+
+[node name="PickupPause" type="Label" parent="MenuOptions/Content/Gameplay"]
+margin_top = 39.0
+margin_right = 160.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 1 )
+text = "PAUSE ON PICKUP"
+
+[node name="Description" type="PanelContainer" parent="."]
+margin_top = 25.0
+margin_right = 176.0
+margin_bottom = 50.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="DescText" type="Label" parent="Description"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 168.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 1 )
+text = "OPTION DESCRIPTION"
