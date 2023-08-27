@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Fonts/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Sprites/GUI/NinePatch/NineBgPanel_Basic.png" type="Texture" id=2]
+[ext_resource path="res://Menu/MenuOptions.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 2 )
@@ -15,17 +16,19 @@ margin_bottom = 8.0
 margin_right = 176.0
 margin_bottom = 176.0
 custom_constants/separation = 0
+script = ExtResource( 3 )
 
 [node name="MenuOptions" type="PanelContainer" parent="."]
 margin_right = 176.0
-margin_bottom = 25.0
+margin_bottom = 151.0
+size_flags_vertical = 3
 custom_styles/panel = SubResource( 3 )
 
 [node name="Content" type="VBoxContainer" parent="MenuOptions"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 168.0
-margin_bottom = 17.0
+margin_bottom = 143.0
 
 [node name="Header" type="Label" parent="MenuOptions/Content"]
 margin_right = 160.0
@@ -186,9 +189,9 @@ custom_fonts/font = ExtResource( 1 )
 text = "PAUSE ON PICKUP"
 
 [node name="Description" type="PanelContainer" parent="."]
-margin_top = 25.0
+margin_top = 151.0
 margin_right = 176.0
-margin_bottom = 50.0
+margin_bottom = 176.0
 custom_styles/panel = SubResource( 3 )
 
 [node name="DescText" type="Label" parent="Description"]

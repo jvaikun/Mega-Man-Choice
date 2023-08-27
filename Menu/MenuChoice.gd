@@ -1,59 +1,39 @@
 extends Control
 
-const CHOICES = {
-	"chapter1": [
-		{
-			"image":"res://Menu/StageSelect/mug_current.png", 
-			"caption":"CHAPTER 1\nCHOICE 1", 
-			"stage":"res://Levels/Levels/Grassland_1_2OP.tscn"
-		},
-		{
-			"image":"res://Menu/StageSelect/mug_paper.png",
-			"caption":"CHAPTER 1\nCHOICE 2",
-			"stage":"res://Levels/Levels/Grassland_1_2OP.tscn"
-		},
-	],
-	"chapter2": [
-		{
-			"image":"res://Menu/StageSelect/mug_current.png", 
-			"caption":"CHAPTER 2\nCHOICE 1", 
-			"stage":"res://Levels/Levels/Grassland_1_2OP.tscn"
-		},
-		{
-			"image":"res://Menu/StageSelect/mug_paper.png",
-			"caption":"CHAPTER 2\nCHOICE 2",
-			"stage":"res://Levels/Levels/Grassland_1_2OP.tscn"
-		},
-	],
-	"chapter3": [
-		{
-			"image":"res://Menu/StageSelect/mug_current.png", 
-			"caption":"CHAPTER 3\nCHOICE 1", 
-			"stage":"res://Levels/Levels/Grassland_1_2OP.tscn"
-		},
-		{
-			"image":"res://Menu/StageSelect/mug_paper.png",
-			"caption":"CHAPTER 3\nCHOICE 2",
-			"stage":"res://Levels/Levels/Grassland_1_2OP.tscn"
-		},
-	],
-	"chapter4": [
-		{
-			"image":"res://Menu/StageSelect/mug_current.png", 
-			"caption":"CHAPTER 4\nCHOICE 1", 
-			"stage":"res://Levels/Levels/Grassland_1_2OP.tscn"
-		},
-		{
-			"image":"res://Menu/StageSelect/mug_paper.png",
-			"caption":"CHAPTER 4\nCHOICE 2",
-			"stage":"res://Levels/Levels/Grassland_1_2OP.tscn"
-		},
-	],
-}
-
 onready var fade_screen = $FadeScreen
 
+var chapter = "chap1"
+var set = "set1"
+var current = "city"
+var choice_data = {
+	"chap1":{
+		"set1":{
+			"city":{"caption":"CITY", "clear":false},
+			"road":{"caption":"ROAD", "clear":false},
+			"forest":{"caption":"FOREST", "clear":false},
+		},
+		"set2":{
+			"office":{"caption":"OFFICES", "clear":false},
+			"power":{"caption":"POWER PLANT", "clear":false},
+			"weather":{"caption":"WEATHER CENTER", "clear":false},
+		},
+		"set3":{
+			"punch":{"caption":"PUNCH GANG", "clear":false},
+			"element":{"caption":"ELEMENTAL", "clear":false},
+		},
+	},
+	"chap2":{
+		"set1":{
+			"boss1":{"caption":"BOSS 1", "clear":false},
+			"boss2":{"caption":"BOSS 2", "clear":false},
+			"boss3":{"caption":"BOSS 3", "clear":false},
+		},
+	},
+	"chap3":{
+	},
+}
 var choice_index = 0 setget set_choice
+
 
 func set_choice(val):
 	if val < 0:
@@ -66,14 +46,12 @@ func set_choice(val):
 	$Choices/Choice2/Frame/Select.visible = (choice_index == 1)
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	print($Choices.get_child_count())
 	set_choice(0)
-	load_choices("chapter1")
+	load_choices("chap1")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("game_left"):
 		self.choice_index -= 1
@@ -82,8 +60,8 @@ func _process(delta):
 
 
 func load_choices(index):
-	$Choices/Choice1/Frame/Image.texture = load(CHOICES[index][0].image)
-	$Choices/Choice1/Caption.text = CHOICES[index][0].caption
-	$Choices/Choice2/Frame/Image.texture = load(CHOICES[index][1].image)
-	$Choices/Choice2/Caption.text = CHOICES[index][1].caption
+	$Choices/Choice1/Frame/Image.texture = load(choice_data[index][0].image)
+	$Choices/Choice1/Caption.text = choice_data[index][0].caption
+	$Choices/Choice2/Frame/Image.texture = load(choice_data[index][1].image)
+	$Choices/Choice2/Caption.text = choice_data[index][1].caption
 
